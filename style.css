@@ -1,0 +1,183 @@
+/* Alap reset és stílusok */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #14171F;
+    color: white;
+    padding: 1.2rem;
+    position: relative; /* Hozzáadva a pozicionáláshoz */
+    border-bottom: solid 5px #ffb813;
+}
+header nav {
+    display: flex;
+    align-items: center; /* Igazítás középre */
+    justify-content: space-between; /* Tér elosztása */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 30px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.hero {
+    background: url('20131222-WOLF-slide-FI5U-superJumbo.jpg'),no-repeat,left,center;
+    background-size: cover; /* A kép kitölti a teret, de a bal oldal eltűnhet */
+    color: white;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+    padding: 0 0px;
+    border-bottom: solid 5px #ffb813;
+}
+
+.hero h1{
+    margin: 2%;
+    margin-top: 7%;
+    font-size: 650%;
+    color: #ffb813;
+    text-shadow: 21px 21px 40px  rgba(0, 0, 0, 1);
+}
+.cta:hover {
+    background-color: #ff4e42;
+}
+.content {
+    background-color: #14171F;
+    color: white;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3px;
+}
+.c1{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.c1 h1{
+    font-size: 300%;
+    margin-top: 12%;
+    margin-bottom: 5%;
+}
+.c1 p{
+    font-size: 150%;
+    line-height: 1.4
+}
+
+.c1img img{
+    width: 100%;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top:0px ;
+}
+
+/* Hamburger menü alapértelmezett állapotban elrejtve */
+.menu-toggle {
+    display: none; /* Alapértelmezett rejtett */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Kisebb képernyők (max 768px) */
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* Alapértelmezett rejtett */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 55px;
+        right: 0;
+        width:100%;
+        z-index: 1; /* Hogy a menü a többi elem fölött legyen */
+    }
+
+    header nav ul li {
+        margin: 0;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex; /* Mobilon megjelenítve */
+    }
+
+    .menu-opened {
+        display: flex; /* Ha nyitva van, mutasd meg */
+    }
+}
+
+/* Hero szekció reszponzív stílusai */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+/* Alaphelyzetben a tartalom átlátszó */
+.reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Ha a tartalom a látható területen van, akkor animálva lesz */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
